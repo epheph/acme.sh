@@ -1217,7 +1217,7 @@ issue() {
         return 1
       fi
 
-      entry="$(printf "$response" | egrep -o  '\{[^{]*"type":"'$vtype'"[^}]*')"
+      entry="$(printf "$response" | egrep -o  '^\s+"type": "'$vtype'",')"
       _debug entry "$entry"
       if [ -z "$entry" ] ; then
         _err "Error, can not get domain token $d"
